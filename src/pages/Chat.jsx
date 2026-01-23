@@ -14,13 +14,15 @@ export function Chat() {
     const activeConversation = conversations.find(c => c.id === activeConversationId);
 
     return (
-        <div className="flex h-[calc(100vh-4rem)] max-w-7xl mx-auto border-x border-gray-200 shadow-sm">
-            <ConversationList
-                conversations={conversations}
-                activeId={activeConversationId}
-                onSelect={setActiveConversationId}
-            />
-            <MessageWindow conversation={activeConversation} />
+        <div className="bg-gray-50 h-[calc(100vh-4rem)] overflow-hidden">
+            <div className="max-w-[1600px] h-full mx-auto flex shadow-sm">
+                <ConversationList
+                    conversations={conversations}
+                    activeId={activeConversationId}
+                    onSelect={setActiveConversationId}
+                />
+                <MessageWindow conversation={activeConversation} />
+            </div>
         </div>
     );
 }
